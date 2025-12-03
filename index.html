@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jimmy Johansson - Systemutvecklare</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fafbfc;
+            --surface: #ffffff;
+            --border: #e5e7eb;
+            --text: #1f2937;
+            --text-dim: #6b7280;
+            --accent: #2563eb;
+            --accent-dim: #1e40af;
+            --highlight: #0891b2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Darker Grotesque', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 80px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 0.95;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--highlight) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-dim);
+            margin-bottom: 24px;
+            animation: fadeInUp 0.8s ease-out 0.1s backwards;
+        }
+
+        .contact {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        .contact a {
+            color: var(--highlight);
+            text-decoration: none;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .contact a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--highlight);
+            transition: width 0.3s;
+        }
+
+        .contact a:hover {
+            color: var(--text);
+        }
+
+        .contact a:hover::after {
+            width: 100%;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 64px;
+            animation: fadeInUp 0.8s ease-out backwards;
+        }
+
+        section:nth-child(2) { animation-delay: 0.3s; }
+        section:nth-child(3) { animation-delay: 0.4s; }
+        section:nth-child(4) { animation-delay: 0.5s; }
+        section:nth-child(5) { animation-delay: 0.6s; }
+        section:nth-child(6) { animation-delay: 0.7s; }
+        section:nth-child(7) { animation-delay: 0.8s; }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 24px;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2::before {
+            content: '';
+            width: 4px;
+            height: 32px;
+            background: linear-gradient(180deg, var(--accent), var(--highlight));
+            border-radius: 2px;
+        }
+
+        /* Profile */
+        .profile-text {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: var(--text-dim);
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .skill-category {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .skill-category:hover {
+            transform: translateX(4px);
+            border-color: var(--accent);
+        }
+
+        .skill-category strong {
+            color: var(--accent);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .skill-category span {
+            color: var(--text-dim);
+            font-size: 1.05rem;
+        }
+
+        /* Experience */
+        .job {
+            margin-bottom: 40px;
+            padding-left: 24px;
+            border-left: 2px solid var(--border);
+            transition: border-color 0.3s;
+        }
+
+        .job:hover {
+            border-color: var(--accent);
+        }
+
+        .job h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .job .meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            margin-bottom: 12px;
+        }
+
+        .job .meta .company {
+            color: var(--highlight);
+        }
+
+        .job p {
+            color: var(--text-dim);
+            font-size: 1.05rem;
+        }
+
+        /* Education */
+        .education-item {
+            margin-bottom: 32px;
+        }
+
+        .education-item h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        .education-item .meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            margin-bottom: 8px;
+        }
+
+        .education-item p {
+            color: var(--text-dim);
+            font-size: 1.05rem;
+        }
+
+        /* Strengths */
+        .strengths-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .strength-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 16px 20px;
+            font-size: 1.05rem;
+            color: var(--text-dim);
+            transition: transform 0.2s, border-color 0.2s, background 0.2s;
+        }
+
+        .strength-item:hover {
+            transform: translateY(-2px);
+            border-color: var(--highlight);
+            background: rgba(8, 145, 178, 0.05);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Background decoration */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.04) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(8, 145, 178, 0.04) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .container {
+                padding: 40px 20px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .contact {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .strengths-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            body::before {
+                display: none;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 20px;
+            }
+
+            h1 {
+                -webkit-text-fill-color: initial;
+                background: none;
+                color: black;
+                font-size: 2.5rem;
+                margin-bottom: 8px;
+            }
+
+            .subtitle {
+                color: #333;
+                font-size: 1.2rem;
+                margin-bottom: 16px;
+            }
+
+            .contact {
+                margin-bottom: 32px;
+            }
+
+            .contact a {
+                color: #333;
+                text-decoration: none;
+            }
+
+            .contact a::after {
+                display: none;
+            }
+
+            section {
+                margin-bottom: 40px;
+                page-break-inside: avoid;
+            }
+
+            h2 {
+                color: black;
+                font-size: 1.4rem;
+                margin-bottom: 16px;
+                page-break-after: avoid;
+            }
+
+            h2::before {
+                background: black;
+                height: 24px;
+            }
+
+            .profile-text {
+                color: #333;
+                font-size: 1rem;
+            }
+
+            .skill-category,
+            .strength-item {
+                background: #f5f5f5;
+                border-color: #ddd;
+                page-break-inside: avoid;
+            }
+
+            .skill-category strong {
+                color: black;
+            }
+
+            .skill-category span,
+            .strength-item {
+                color: #333;
+                font-size: 0.95rem;
+            }
+
+            .job {
+                margin-bottom: 24px;
+                border-left-color: #ddd;
+                page-break-inside: avoid;
+            }
+
+            .job h3 {
+                color: black;
+                font-size: 1.15rem;
+            }
+
+            .job .meta {
+                color: #555;
+                font-size: 0.85rem;
+            }
+
+            .job .meta .company {
+                color: #333;
+            }
+
+            .job p {
+                color: #333;
+                font-size: 0.95rem;
+            }
+
+            .education-item {
+                margin-bottom: 20px;
+                page-break-inside: avoid;
+            }
+
+            .education-item h3 {
+                color: black;
+                font-size: 1.1rem;
+            }
+
+            .education-item .meta {
+                color: #555;
+            }
+
+            .education-item p {
+                color: #333;
+                font-size: 0.95rem;
+            }
+
+            .strengths-list {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            /* Prevent orphaned content */
+            h2, h3 {
+                page-break-after: avoid;
+            }
+
+            .job, .education-item, .skill-category, .strength-item {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Jimmy Johansson</h1>
+            <div class="subtitle">Systemutvecklare</div>
+            <div class="contact">
+                <a href="https://linkedin.com/in/jimmy-johansson-365b47165" target="_blank">linkedin.com/in/jimmy-johansson-365b47165</a>
+            </div>
+        </header>
+
+        <section>
+            <h2>Profil</h2>
+            <p class="profile-text">
+                Systemutvecklare med gedigen teknisk bredd från både mekanisk industri och modern mjukvaruutveckling. 
+                Unik kombination av problemlösningsförmåga från CNC-programmering och fullstack-utveckling. 
+                Erfaren i att snabbt sätta sig in i nya tekniska miljöer och leverera fungerande lösningar.
+            </p>
+        </section>
+
+        <section>
+            <h2>Teknisk kompetens</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <strong>Utveckling:</strong> 
+                    <span>C# (.NET), JavaScript/TypeScript, Angular, AngularJS, ASP.NET Core MVC, REST API:er, T-SQL</span>
+                </div>
+                <div class="skill-category">
+                    <strong>Legacy & modernisering:</strong> 
+                    <span>.NET Framework 4.8, WebForms, SOAP-tjänster, migrering från legacy-system</span>
+                </div>
+                <div class="skill-category">
+                    <strong>Cloud & DevOps:</strong> 
+                    <span>Azure (cloud infrastructure), Docker containers, CI/CD</span>
+                </div>
+                <div class="skill-category">
+                    <strong>Verktyg & metoder:</strong> 
+                    <span>Git, Agil utveckling, Systemintegration, Problemlösning i produktion</span>
+                </div>
+                <div class="skill-category">
+                    <strong>Övrigt:</strong> 
+                    <span>CAD/CAM, CNC-programmering, Projektledning, Lean/5S</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Arbetslivserfarenhet</h2>
+            
+            <div class="job">
+                <h3>Software Developer & Chaos Engineer</h3>
+                <div class="meta">
+                    <span class="company">Shelfless AB</span> | mars 2024 – nu
+                </div>
+                <p>
+                    Fullstack-utveckling med fokus på backend. Arbetar med C#, .NET, och systemintegration i lagermiljö. 
+                    Felsökning och stabilisering av produktionssystem. Arbete med både moderna .NET Core-lösningar och legacy .NET Framework 4.8 WebForms/SOAP-tjänster.
+                    Deployment och drift i Azure med Docker containers.
+                </p>
+            </div>
+
+            <div class="job">
+                <h3>Junior Web Developer</h3>
+                <div class="meta">
+                    <span class="company">DreamLogistics AB</span> | mars 2021 – mars 2024
+                </div>
+                <p>
+                    Webbutveckling med C#, ASP.NET MVC, Angular. Byggde dynamiska webbapplikationer och REST API:er. 
+                    Arbete med både frontend och backend.
+                </p>
+            </div>
+
+            <div class="job">
+                <h3>CNC-programmerare / CAM-beredare</h3>
+                <div class="meta">
+                    <span class="company">HABO TRÄFO AB</span> | aug 2013 – sep 2019
+                </div>
+                <p>
+                    Konstruktion och programmering för CNC-styrda maskiner. Problemlösning i tillverkningsprocesser, 
+                    kvalitetssäkring, process-optimering.
+                </p>
+            </div>
+
+            <div class="job">
+                <h3>Tidigare roller</h3>
+                <div class="meta">
+                    <span class="company">LEAX Arkivator Telecom AB, Volvo Trucks, m.fl.</span>
+                </div>
+                <p>
+                    Inköpare, Projektkoordinator, CNC-operatör. Bred erfarenhet av tillverkningsindustri, 
+                    projektledning och teknisk problemlösning.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Utbildning</h2>
+            
+            <div class="education-item">
+                <h3>Webbutvecklare .NET (Fullstack)</h3>
+                <div class="meta">Yrkeshögskolan Jönköping | 2019 – 2021</div>
+                <p>
+                    C# och objektorienterad programmering, ASP.NET Core MVC, REST API-utveckling, Angular, T-SQL, 
+                    moderna webbapplikationer med realtidskommunikation.
+                </p>
+            </div>
+
+            <div class="education-item">
+                <h3>Diplomerad Projektledare</h3>
+                <div class="meta">TBV Skövde | 2003 – 2004</div>
+            </div>
+
+            <div class="education-item">
+                <h3>Fysik</h3>
+                <div class="meta">Lunds Universitet | 2001 – 2002</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Styrkor</h2>
+            <div class="strengths-list">
+                <div class="strength-item">Snabbt lärande i nya tekniska miljöer</div>
+                <div class="strength-item">Problemlösning under press</div>
+                <div class="strength-item">Teknisk bredd från hårdvara till mjukvara</div>
+                <div class="strength-item">Självgående med erfarenhet av både team och individuellt arbete</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Projekt & initiativ</h2>
+            <div class="job">
+                <h3>NullVector Dominion</h3>
+                <div class="meta">
+                    <span><a href="https://nullvector-dominion.space/" target="_blank">nullvector-dominion.space</a> | Pågående</span>
+                </div>
+                <p>
+                    Experimentell plattform för AI-system och simulationer. Inkluderar cyberpunk terminal-hackingspel (Rust + SvelteKit), 
+                    multi-level evolutionär civilisationssimulator med neurala nätverk, quantum-reaktivt blockchain-ramverk (PhaseSync Protocol), 
+                    och finjusterade AI-modeller med distinkt personlighet. Fokus på WebAssembly, prestanda, och experimentell systemarkitektur.
+                </p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
