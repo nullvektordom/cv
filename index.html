@@ -100,6 +100,30 @@
             width: 100%;
         }
 
+        .meta a {
+            position: relative;
+            transition: color 0.2s;
+        }
+
+        .meta a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--highlight);
+            transition: width 0.3s;
+        }
+
+        .meta a:hover {
+            color: var(--text);
+        }
+
+        .meta a:hover::after {
+            width: 100%;
+        }
+
         /* Sections */
         section {
             margin-bottom: 64px;
@@ -451,6 +475,7 @@
             <div class="subtitle">Systemutvecklare</div>
             <div class="contact">
                 <a href="https://linkedin.com/in/jimmy-johansson-365b47165" target="_blank">linkedin.com/in/jimmy-johansson-365b47165</a>
+                <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a>
             </div>
         </header>
 
@@ -576,7 +601,7 @@
             <div class="job">
                 <h3>NullVector Dominion</h3>
                 <div class="meta">
-                    <span><a href="https://nullvector-dominion.space/" target="_blank">nullvector-dominion.space</a> | Pågående</span>
+                    <a href="https://nullvector-dominion.space" target="_blank" style="color: var(--highlight); text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; position: relative;">nullvector-dominion.space</a> | Pågående
                 </div>
                 <p>
                     Experimentell plattform för AI-system och simulationer. Inkluderar cyberpunk terminal-hackingspel (Rust + SvelteKit), 
@@ -586,5 +611,9 @@
             </div>
         </section>
     </div>
+
+    <footer style="text-align: center; padding: 40px 20px; border-top: 1px solid var(--border); margin-top: 60px;">
+        <a href="https://github.com/nullvektordom" target="_blank" style="color: var(--highlight); text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem;">github.com/nullvektordom</a>
+    </footer>
 </body>
 </html>
