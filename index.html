@@ -1,136 +1,251 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jimmy Johansson – Software Developer</title>
   <meta name="description" content="Senior software developer focused on robust systems, delivery, and real-world impact."/>
+  
   <style>
+    :root {
+      --text: #111;
+      --light-text: #444;
+      --border: #ddd;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-      line-height: 1.6;
-      color: #111;
+      margin: 4rem auto 2rem;
+      padding: 0 1.5rem;
+      line-height: 1.55;
+      color: var(--text);
+      background: #fff;
     }
-    h1, h2, h3 {
-      line-height: 1.3;
+
+    h1 {
+      margin: 0.4em 0 0.1em;
+      font-size: 2.4rem;
+      line-height: 1.1;
     }
+
     h2 {
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 0.25rem;
-      margin-top: 2rem;
+      margin: 2.2rem 0 0.8rem;
+      padding-bottom: 0.35rem;
+      font-size: 1.65rem;
+      border-bottom: 1px solid var(--border);
     }
-    ul {
-      padding-left: 1.2rem;
+
+    h3 {
+      margin: 1.4rem 0 0.4rem;
+      font-size: 1.28rem;
     }
+
     .meta {
-      color: #555;
-      font-size: 0.95rem;
+      color: var(--light-text);
+      font-size: 1rem;
+      margin: 0.3em 0 1.2em;
     }
+
     .stack {
-      font-family: monospace;
-      font-size: 0.95rem;
+      font-family: ui-monospace, "Cascadia Mono", "Segoe UI Mono", Menlo, monospace;
+      font-size: 0.94rem;
+      color: #555;
+      margin: 0.8em 0 1.5em;
+    }
+
+    ul {
+      padding-left: 1.4rem;
+      margin: 0.6em 0 1.2em;
+    }
+
+    li {
+      margin-bottom: 0.45em;
+    }
+
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* ==============================================
+        PRINT STYLES – viktig del för snygg PDF/utskrift
+    ============================================== */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 1.2cm 1.4cm;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-size: 11pt;
+        line-height: 1.48;
+        color: black;
+      }
+
+      h1 {
+        font-size: 22pt;
+        margin-top: 0;
+      }
+
+      h2 {
+        font-size: 16pt;
+        margin-top: 1.6cm;
+        margin-bottom: 0.4cm;
+        border-bottom: 1px solid #777;
+      }
+
+      h3 {
+        font-size: 13pt;
+        margin-top: 1.1em;
+        margin-bottom: 0.3em;
+      }
+
+      .meta {
+        font-size: 10.5pt;
+        margin-bottom: 1em;
+      }
+
+      ul {
+        margin: 0.4em 0 0.8em;
+      }
+
+      li {
+        margin-bottom: 0.35em;
+      }
+
+      /* Visa URL efter länkar */
+      a::after {
+        content: " <" attr(href) ">";
+        font-size: 9.5pt;
+        color: #444;
+      }
+
+      /* Dölj hover-effekter etc */
+      a {
+        text-decoration: none;
+        color: black;
+      }
+
+      /* Förhindra dåliga sidbrytningar */
+      h1, h2, h3, .meta {
+        page-break-after: avoid;
+      }
+
+      section > *:last-child {
+        page-break-inside: avoid;
+      }
+
+      /* Lite tightare layout */
+      body > * + * {
+        margin-top: 0;
+      }
+
+      /* Tvinga sidbrytning FÖRE ett specifikt element */
+        .force-page-break-before {
+            break-before: page;           /* modern standard */
+            page-break-before: always;    /* bakåtkompatibilitet */
+        }
+
+        /* Tvinga sidbrytning EFTER ett element */
+        .force-page-break-after {
+            break-after: page;
+            page-break-after: always;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+      body {
+        margin: 1.5rem 0.8rem;
+        padding: 0 0.5rem;
+      }
     }
   </style>
 </head>
-
 <body>
 
 <header>
   <h1>Jimmy Johansson</h1>
   <p class="meta">
-    Software Developer · Fullstack / Backend (.NET)<br/>
-    Jönköping, Sweden ·
-    <a href="https://github.com/nullvektordom">GitHub</a>
+    Software Developer · Fullstack / Backend (.NET)<br>
+    Jönköping, Sverige · 
+    <a href="https://github.com/nullvektordom">GitHub: nullvektordom</a>
   </p>
 </header>
 
 <section>
-  <h2>Profile</h2>
+  <h2>Profil</h2>
   <p>
-    Software developer with 5+ years of experience building and maintaining
-    business-critical systems. Known for strong focus, persistence, and
-    finishing complex tasks end-to-end. Comfortable taking ownership of
-    unclear problem spaces and turning them into stable, maintainable solutions.
+    Softwareutvecklare med 6+ års erfarenhet av att bygga och förvalta affärskritiska system. 
+    Känd för starkt fokus, uthållighet och förmåga att slutföra komplexa uppgifter från början till slut. 
+    Bekväm med att ta ägarskap över oklara problemområden och förvandla dem till stabila, underhållbara lösningar.
   </p>
 </section>
 
 <section>
-  <h2>Technical Skills</h2>
-
+  <h2>Tekniska kunskaper</h2>
   <ul>
-    <li><strong>Languages:</strong> C#, TypeScript, JavaScript, SQL</li>
-    <li><strong>Backend:</strong> ASP.NET Core, MVC, REST APIs</li>
+    <li><strong>Språk:</strong> C#, TypeScript, JavaScript, SQL</li>
+    <li><strong>Backend:</strong> ASP.NET Core, MVC, REST API:er</li>
     <li><strong>Frontend:</strong> Angular, AngularJS, Blazor</li>
-    <li><strong>Databases:</strong> SQL Server (design, optimization, queries)</li>
-    <li><strong>Cloud & Infrastructure:</strong> Azure App Services, Azure SQL, Storage</li>
-    <li><strong>Tooling:</strong> Git, Docker, CI/CD pipelines</li>
+    <li><strong>Databaser:</strong> SQL Server (design, optimering, avancerade queries)</li>
+    <li><strong>Cloud & Infrastruktur:</strong> Azure App Services, Azure SQL, Storage</li>
+    <li><strong>Verktyg:</strong> Git, Docker, CI/CD-pipelines</li>
   </ul>
 </section>
 
 <section>
-  <h2>Professional Experience</h2>
-
-  <h3>System Developer</h3>
-  <p class="meta">2021 – Present</p>
-
+  <h2>Arbetslivserfarenhet</h2>
+  
+  <h3>Systemutvecklare</h3>
+  <p class="meta">2018 – pågående</p>
   <ul>
-    <li>
-      Developed and maintained complex warehouse and logistics systems used in
-      daily production environments.
-    </li>
-    <li>
-      Took ownership of legacy codebases and improved stability, readability,
-      and long-term maintainability.
-    </li>
-    <li>
-      Implemented new features and integrations while ensuring minimal downtime
-      and backward compatibility.
-    </li>
-    <li>
-      Worked closely with business stakeholders to translate real operational
-      needs into reliable technical solutions.
-    </li>
+    <li>Utveckling och förvaltning av komplexa lager- och logistiksystem i daglig produktionsmiljö.</li>
+    <li>Ägarskap över legacy-kodbaser med fokus på stabilitet, läsbarhet och långsiktigt underhåll.</li>
+    <li>Implementering av nya funktioner och integrationer med minimal driftstörning och bakåtkompatibilitet.</li>
+    <li>Nära samarbete med verksamheten för att omsätta verkliga operativa behov till robusta tekniska lösningar.</li>
   </ul>
-
-  <p class="stack">
-    Tech: C#, ASP.NET Core, Angular, SQL Server, Azure
-  </p>
+  <p class="stack">Teknik: C#, ASP.NET Core, Angular, SQL Server, Azure</p>
 </section>
 
+<div class="force-page-break-before"></div>
 <section>
-  <h2>Selected Projects</h2>
-
+  <h2>Utvalda projekt</h2>
+  
   <h3>NullVector Dominion</h3>
   <p>
-    Experimental platform for simulations, systems exploration, and tooling.
-    Focused on modular architecture and learning through building.
+    Experimentell plattform för simuleringar, systemutforskning och verktyg. 
+    Fokus på modulär arkitektur och lärande genom att bygga färdiga lösningar.
   </p>
   <ul>
-    <li>Designed and implemented core systems from scratch.</li>
-    <li>Explored system boundaries, architecture trade-offs, and maintainability.</li>
-    <li>Emphasis on finishing complete, working systems rather than prototypes.</li>
+    <li>Design och implementation av kärnsystem från grunden.</li>
+    <li>Utforskning av systemgränser, arkitekturval och underhållbarhet.</li>
+    <li>Starkt fokus på att leverera kompletta, fungerande system – inte bara prototyper.</li>
   </ul>
-  <p class="stack">
-    Tech: Rust, JavaScript/TypeScript, Web technologies
-  </p>
+  <p class="stack">Teknik: Rust, JavaScript/TypeScript, webbteknologier</p>
 </section>
 
 <section>
-  <h2>Education</h2>
-  <p>
-    Vocational / Technical education in software development
-  </p>
+  <h2>Utbildning</h2>
+  <p>Yrkeshögskoleutbildning / Teknisk utbildning inom mjukvaruutveckling</p>
 </section>
 
 <section>
-  <h2>Working Style</h2>
+  <h2>Arbetssätt & värderingar</h2>
   <ul>
-    <li>Strong bias toward delivery and completion</li>
-    <li>Comfortable working independently and taking responsibility</li>
-    <li>Prefer simple, robust solutions over unnecessary complexity</li>
+    <li>Starkt driv mot leverans och avslut</li>
+    <li>Trivs med att arbeta självständigt och ta ansvar</li>
+    <li>Föredrar enkla, robusta lösningar framför onödig komplexitet</li>
   </ul>
 </section>
 
