@@ -1,276 +1,138 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jimmy Johansson - Systemutvecklare</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #fafbfc;
-            --surface: #ffffff;
-            --border: #e5e7eb;
-            --text: #1f2937;
-            --text-dim: #6b7280;
-            --accent: #2563eb;
-            --accent-dim: #1e40af;
-            --highlight: #0891b2;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Darker Grotesque', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 24px 60px 24px;
-        }
-
-        /* Language Switcher */
-        .lang-switch {
-            display: flex;
-            justify-content: flex-end;
-            gap: 8px;
-            margin-bottom: 20px;
-            position: sticky;
-            top: 20px;
-            z-index: 100;
-        }
-
-        .lang-btn {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            padding: 6px 12px;
-            cursor: pointer;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-            font-weight: 600;
-            border-radius: 6px;
-            transition: all 0.2s;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        .lang-btn.active {
-            background: var(--accent);
-            color: white;
-            border-color: var(--accent);
-        }
-
-        /* Toggle logic: hide elements that don't match current lang */
-        [lang="sv"] .en { display: none; }
-        [lang="en"] .sv { display: none; }
-
-        /* Rest of your existing styles... */
-        header { margin-bottom: 80px; animation: fadeInUp 0.8s ease-out; }
-        h1 {
-            font-size: clamp(3rem, 8vw, 5.5rem);
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            line-height: 0.95;
-            margin-bottom: 12px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--highlight) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .subtitle { font-size: 1.5rem; font-weight: 600; color: var(--text-dim); margin-bottom: 24px; }
-        .contact { display: flex; gap: 24px; flex-wrap: wrap; }
-        .contact a { color: var(--highlight); text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; position: relative; }
-        
-        section { margin-bottom: 64px; animation: fadeInUp 0.8s ease-out backwards; }
-        h2 { font-size: 2rem; font-weight: 800; margin-bottom: 24px; color: var(--text); display: flex; align-items: center; gap: 12px; }
-        h2::before { content: ''; width: 4px; height: 32px; background: linear-gradient(180deg, var(--accent), var(--highlight)); border-radius: 2px; }
-
-        .profile-text { font-size: 1.2rem; line-height: 1.7; color: var(--text-dim); }
-        .skills-grid { display: grid; gap: 16px; }
-        .skill-category { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 20px; transition: transform 0.2s; }
-        .skill-category strong { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; }
-        
-        .job { margin-bottom: 40px; padding-left: 24px; border-left: 2px solid var(--border); }
-        .job h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 8px; }
-        .job .meta { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--text-dim); margin-bottom: 12px; }
-        .job .meta .company { color: var(--highlight); }
-
-        .education-item { margin-bottom: 32px; }
-        .strengths-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
-        .strength-item { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px 20px; color: var(--text-dim); }
-
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-
-        @media (max-width: 640px) {
-            .container { padding: 20px; }
-            h1 { font-size: 2.5rem; }
-            .contact { flex-direction: column; gap: 12px; }
-        }
-
-        @media print {
-            .lang-switch { display: none; }
-            body { background: white; }
-            section { page-break-inside: avoid; }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jimmy Johansson – Software Developer</title>
+  <meta name="description" content="Senior software developer focused on robust systems, delivery, and real-world impact."/>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      line-height: 1.6;
+      color: #111;
+    }
+    h1, h2, h3 {
+      line-height: 1.3;
+    }
+    h2 {
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.25rem;
+      margin-top: 2rem;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+    .meta {
+      color: #555;
+      font-size: 0.95rem;
+    }
+    .stack {
+      font-family: monospace;
+      font-size: 0.95rem;
+    }
+  </style>
 </head>
+
 <body>
-    <div class="container">
-        <nav class="lang-switch">
-            <button class="lang-btn active" onclick="setLang('sv')">SV</button>
-            <button class="lang-btn" onclick="setLang('en')">EN</button>
-        </nav>
 
-        <header>
-            <h1>Jimmy Johansson</h1>
-            <div class="subtitle">
-                <span class="sv">Systemutvecklare</span>
-                <span class="en">Software Developer</span>
-            </div>
-            <div class="contact">
-                <a href="https://linkedin.com/in/jimmy-johansson-365b47165" target="_blank">linkedin.com/in/jimmy-johansson-365b47165</a>
-                <a href="https://github.com/nullvektordom" target="_blank">github.com/nullvektordom</a>
-            </div>
-        </header>
+<header>
+  <h1>Jimmy Johansson</h1>
+  <p class="meta">
+    Software Developer · Fullstack / Backend (.NET)<br/>
+    Jönköping, Sweden ·
+    <a href="https://github.com/nullvektordom">GitHub</a>
+  </p>
+</header>
 
-        <section>
-            <h2>
-                <span class="sv">Profil</span>
-                <span class="en">Profile</span>
-            </h2>
-            <p class="profile-text">
-                <span class="sv">Systemutvecklare med sex års erfarenhet av affärskritiska system. Bred kompetens inom fullstack-utveckling, databaser och modern infrastruktur. Snabb på att lära nytt och leverera.</span>
-                <span class="en">Software developer with six years of experience in business-critical systems. Broad expertise in fullstack development, databases, and modern infrastructure. Fast learner and delivery-focused.</span>
-            </p>
-        </section>
+<section>
+  <h2>Profile</h2>
+  <p>
+    Software developer with 5+ years of experience building and maintaining
+    business-critical systems. Known for strong focus, persistence, and
+    finishing complex tasks end-to-end. Comfortable taking ownership of
+    unclear problem spaces and turning them into stable, maintainable solutions.
+  </p>
+</section>
 
-        <section>
-            <h2>
-                <span class="sv">Teknisk kompetens</span>
-                <span class="en">Technical Skills</span>
-            </h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <strong class="sv">Utveckling:</strong>
-                    <strong class="en">Development:</strong>
-                    <span>C# (.NET), JavaScript/TypeScript, Angular, AngularJS, Web: ASP.NET Core, Blazor, REST APIs, MVC, T-SQL</span>
-                </div>
-                <div class="skill-category">
-                    <strong class="sv">Legacy & modernisering:</strong>
-                    <strong class="en">Legacy & Modernization:</strong>
-                    <span class="sv">.NET Framework 4.8, WebForms, SOAP-tjänster, migrering från legacy-system</span>
-                    <span class="en">.NET Framework 4.8, WebForms, SOAP services, migration from legacy systems</span>
-                </div>
-                <div class="skill-category">
-                    <strong class="sv">SQL Server:</strong>
-                    <strong class="en">SQL Server:</strong>
-                    <span class="sv">komplexa queries, stored procedures, prestandaoptimering, databasdesign</span>
-                    <span class="en">complex queries, stored procedures, performance optimization, database design</span>
-                </div>
-            </div>
-        </section>
+<section>
+  <h2>Technical Skills</h2>
 
-        <section>
-            <h2>
-                <span class="sv">Arbetslivserfarenhet</span>
-                <span class="en">Experience</span>
-            </h2>
-            
-            <div class="job">
-                <h3>Software Developer</h3>
-                <div class="meta">
-                    <span class="company">Shelfless AB</span> | <span class="sv">mars 2024 – nu</span><span class="en">March 2024 – Present</span>
-                </div>
-                <div class="sv">
-                    <p>- Utveckling och underhåll av komplext lagerstyringssystem i C#, .NET Core och SQL Server</p>
-                    <p>- Omfattande arbete med Azure-infrastruktur (App Services, SQL Database, Storage)</p>
-                    <p>- Databasdesign och optimering för transaktionskrävande miljöer</p>
-                </div>
-                <div class="en">
-                    <p>- Development and maintenance of complex WMS in C#, .NET Core, and SQL Server</p>
-                    <p>- Extensive work with Azure infrastructure (App Services, SQL Database, Storage)</p>
-                    <p>- Database design and optimization for high-transaction environments</p>
-                </div>
-            </div>
+  <ul>
+    <li><strong>Languages:</strong> C#, TypeScript, JavaScript, SQL</li>
+    <li><strong>Backend:</strong> ASP.NET Core, MVC, REST APIs</li>
+    <li><strong>Frontend:</strong> Angular, AngularJS, Blazor</li>
+    <li><strong>Databases:</strong> SQL Server (design, optimization, queries)</li>
+    <li><strong>Cloud & Infrastructure:</strong> Azure App Services, Azure SQL, Storage</li>
+    <li><strong>Tooling:</strong> Git, Docker, CI/CD pipelines</li>
+  </ul>
+</section>
 
-            <div class="job">
-                <h3>Junior Web Developer</h3>
-                <div class="meta">
-                    <span class="company">DreamLogistics AB</span> | <span class="sv">mars 2021 – mars 2024</span><span class="en">March 2021 – March 2024</span>
-                </div>
-                <p class="sv">Fullstack-utveckling med fokus på backend. Arbetar med C#, .NET, och systemintegration i lagermiljö. Felsökning och stabilisering av produktionssystem.</p>
-                <p class="en">Fullstack development with a focus on backend. Working with C#, .NET, and system integration in warehouse environments. Troubleshooting and stabilizing production systems.</p>
-            </div>
-        </section>
+<section>
+  <h2>Professional Experience</h2>
 
-        <section>
-            <h2>
-                <span class="sv">Utbildning</span>
-                <span class="en">Education</span>
-            </h2>
-            <div class="education-item">
-                <h3 class="sv">Webbutvecklare .NET (Fullstack)</h3>
-                <h3 class="en">Web Developer .NET (Fullstack)</h3>
-                <div class="meta">Yrkeshögskolan Jönköping | 2019 – 2021</div>
-            </div>
-        </section>
+  <h3>System Developer</h3>
+  <p class="meta">2021 – Present</p>
 
-        <section>
-            <h2>
-                <span class="sv">Styrkor</span>
-                <span class="en">Strengths</span>
-            </h2>
-            <div class="strengths-list">
-                <div class="strength-item">
-                    <span class="sv">Snabbt lärande i nya tekniska miljöer</span>
-                    <span class="en">Fast learner in new technical environments</span>
-                </div>
-                <div class="strength-item">
-                    <span class="sv">Problemlösning under press</span>
-                    <span class="en">Problem solving under pressure</span>
-                </div>
-            </div>
-        </section>
+  <ul>
+    <li>
+      Developed and maintained complex warehouse and logistics systems used in
+      daily production environments.
+    </li>
+    <li>
+      Took ownership of legacy codebases and improved stability, readability,
+      and long-term maintainability.
+    </li>
+    <li>
+      Implemented new features and integrations while ensuring minimal downtime
+      and backward compatibility.
+    </li>
+    <li>
+      Worked closely with business stakeholders to translate real operational
+      needs into reliable technical solutions.
+    </li>
+  </ul>
 
-        <section>
-            <h2>
-                <span class="sv">Projekt & initiativ</span>
-                <span class="en">Projects & Initiatives</span>
-            </h2>
-            <div class="job">
-                <h3>NullVector Dominion</h3>
-                <div class="meta">
-                    <a href="https://nullvector-dominion.space" target="_blank">nullvector-dominion.space</a>
-                </div>
-                <p class="sv">Experimentell plattform för AI-system och simulationer. Inkluderar cyberpunk terminal-hackingspel (Rust + SvelteKit) och evolutionär simulator.</p>
-                <p class="en">Experimental platform for AI systems and simulations. Includes cyberpunk terminal hacking game (Rust + SvelteKit) and evolutionary simulators.</p>
-            </div>
-        </section>
-    </div>
+  <p class="stack">
+    Tech: C#, ASP.NET Core, Angular, SQL Server, Azure
+  </p>
+</section>
 
-    <script>
-        function setLang(lang) {
-            document.documentElement.lang = lang;
-            
-            // Update buttons
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if(btn.textContent.toLowerCase() === lang) btn.classList.add('active');
-            });
+<section>
+  <h2>Selected Projects</h2>
 
-            // Save preference
-            localStorage.setItem('preferred-lang', lang);
-        }
+  <h3>NullVector Dominion</h3>
+  <p>
+    Experimental platform for simulations, systems exploration, and tooling.
+    Focused on modular architecture and learning through building.
+  </p>
+  <ul>
+    <li>Designed and implemented core systems from scratch.</li>
+    <li>Explored system boundaries, architecture trade-offs, and maintainability.</li>
+    <li>Emphasis on finishing complete, working systems rather than prototypes.</li>
+  </ul>
+  <p class="stack">
+    Tech: Rust, JavaScript/TypeScript, Web technologies
+  </p>
+</section>
 
-        // Initialize from storage or default to Swedish
-        const savedLang = localStorage.getItem('preferred-lang') || 'sv';
-        setLang(savedLang);
-    </script>
+<section>
+  <h2>Education</h2>
+  <p>
+    Vocational / Technical education in software development
+  </p>
+</section>
+
+<section>
+  <h2>Working Style</h2>
+  <ul>
+    <li>Strong bias toward delivery and completion</li>
+    <li>Comfortable working independently and taking responsibility</li>
+    <li>Prefer simple, robust solutions over unnecessary complexity</li>
+  </ul>
+</section>
+
 </body>
 </html>
